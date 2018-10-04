@@ -1,0 +1,21 @@
+version: '3'
+services:
+  wordpress:
+    image: myugan/wordpress:4.9.7
+    environment:
+      - MYSQL_HOST=mysql
+    links:
+      - mysql
+    ports:
+      - "80:80"
+      - "9000:9000"
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - /var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=warpzone
+      - MYSQL_PASSWORD=warpzone
+      - MYSQL_ROOT_PASSWORD=root
