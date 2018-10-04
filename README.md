@@ -1,2 +1,8 @@
-# Docker-Workshop
-Example of Dockerfile to use in workshop
+# Dockerfile
+
+Example of my dockerfile include:
+
+- Nginx
+- Apache 2
+- Rails
+- Elastic Search
