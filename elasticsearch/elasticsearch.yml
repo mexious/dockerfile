@@ -1,0 +1,16 @@
+cluster.name: docker-elasticsearch
+
+node.name: node-1
+node.master: true
+node.data: true
+
+http.port: 9200
+transport.tcp.port: 9300
+
+network.host: 0.0.0.0
+
+#Path where Elasticsearch should store data
+path.data: /var/lib/elasticsearch
+
+#Path where Elasticsearch should store log files
+path.logs: /var/log/elasticsearch
