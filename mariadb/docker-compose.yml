@@ -1,0 +1,13 @@
+version: '3'
+services:
+  mariadb:
+    image: myugan/mariadb:latest
+    ports:
+      - "3306:3306"
+    volumes:
+      - /var/lib/mysql
+    environment:
+      - MARIADB_NAME=mariadb
+      - MARIADB_USER=mariadb
+      - MARIADB_PASS=maria
+      - MARIADB_ROOT_PASS=root
