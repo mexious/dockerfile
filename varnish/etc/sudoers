@@ -1,0 +1,49 @@
+# This file MUST be edited with the 'visudo' command as root.
+#
+# Please consider adding local content in /etc/sudoers.d/ instead of
+# directly modifying this file.
+#
+# See the man page for details on how to write a sudoers file.
+#
+Defaults        env_reset
+Defaults        mail_badpass
+Defaults        secure_path="/sbin:/bin:/usr/sbin:/usr/bin"
+
+#
+# Preserving HOME has security implications since many programs
+# use it when searching for configuration files. Note that HOME
+# is already set when the the env_reset option is enabled, so
+# this option is only effective for configurations where either
+# env_reset is disabled or HOME is present in the env_keep list.
+#
+Defaults    always_set_home
+
+Defaults    env_reset
+Defaults    env_keep =  "COLORS DISPLAY HOSTNAME HISTSIZE INPUTRC KDEDIR LS_COLORS"
+Defaults    env_keep += "MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE"
+Defaults    env_keep += "LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES"
+Defaults    env_keep += "LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE"
+Defaults    env_keep += "LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY"
+
+##
+#  Cmnd alias specification
+##
+
+Cmnd_Alias MYSQL_STATUS  = /usr/sbin/service mysql status
+Cmnd_Alias MYSQL_START   = /usr/sbin/service mysql start
+Cmnd_Alias MYSQL_RESTART = /usr/sbin/service mysql restart
+Cmnd_Alias MYSQL_STOP    = /usr/sbin/service mysql stop
+
+##
+#  Allow some commands w/o password
+##
+
+appuser ALL=NOPASSWD: /usr/bin/apt
+appuser ALL=NOPASSWD: /usr/bin/apt-get
+appuser ALL=NOPASSWD: /usr/bin/find
+appuser ALL=NOPASSWD: /usr/bin/chmod
+appuser ALL=NOPASSWD: /usr/bin/chown
+appuser ALL=NOPASSWD: MYSQL_STATUS
+appuser ALL=NOPASSWD: MYSQL_START
+appuser ALL=NOPASSWD: MYSQL_RESTART
+appuser ALL=NOPASSWD: MYSQL_STOP
