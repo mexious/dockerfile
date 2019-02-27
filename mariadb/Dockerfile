@@ -6,6 +6,7 @@ ENV MARIADB_NAME=db_test
 ENV MARIADB_USER=appuser 
 ENV MARIADB_PASS=appuser
 ENV MARIADB_ROOT_PASS=root
+ENV USER=appuser
 ENV DEBIAN_FRONTEND=noninteractive
 
 # general
