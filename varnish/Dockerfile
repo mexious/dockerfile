@@ -27,7 +27,6 @@ RUN sed -i 's/:6081/:80/g' /lib/systemd/system/varnish.service
 # create docker group and user
 RUN useradd -rm -d /home/$USER -s /bin/bash -G sudo -u 1001 $USER
 ADD etc/sudoers /etc/sudoers
-ADD etc/mysql/my.cnf /etc/mysql/my.cnf
 
 # add entrypoint
 ADD entrypoint.sh /opt/entrypoint.sh
