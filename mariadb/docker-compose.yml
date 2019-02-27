@@ -1,13 +1,23 @@
 version: '3'
+
 services:
   mariadb:
-    image: myugan/mariadb:latest
+    image: myugan/mariadb:testing
+    hostname: mariadb
+    container_name: mariadb
+    tty: true
     ports:
       - "3306:3306"
     volumes:
-      - /var/lib/mysql
+      - dbdata:/var/lib/mysql
     environment:
-      - MARIADB_NAME=mariadb
-      - MARIADB_USER=mariadb
-      - MARIADB_PASS=maria
+      - MARIADB_NAME=db_test
+      - MARIADB_USER=appuser
+      - MARIADB_PASS=appuser
       - MARIADB_ROOT_PASS=root
+    networks:
+      - internal
+
+networks:
+    internal:
+      driver: bridge
