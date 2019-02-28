@@ -24,6 +24,9 @@ RUN apt-get install -y nginx
 ADD etc/nginx/nginx.conf /etc/nginx/nginx.conf
 ADD etc/nginx/sites-enabled/default.conf /etc/nginx/sites-enabled/
 
+# letsencrypt
+RUN apt-get install -y letsencrypt
+
 # create docker group and users
 RUN useradd -rm -d /home/$USER -s /bin/bash -G sudo -u 1001 $USER
 ADD etc/sudoers /etc/sudoers
